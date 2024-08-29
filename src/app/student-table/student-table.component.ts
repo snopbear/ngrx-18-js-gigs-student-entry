@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { MatTableModule } from '@angular/material/table';
 import { StudentsRecords } from '../state/students-records';
 import { AppState, selectAll } from '../state/students.selectors';
+import * as Actions from '../state/students-records.action';
+import { AsyncPipe, JsonPipe, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-student-table',
   templateUrl: './student-table.component.html',
   styleUrls: ['./student-table.component.scss'],
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, AsyncPipe, NgFor,JsonPipe],
 })
 export class StudentTableComponent implements OnInit {
   dataSource: any = [];
-  dataSource$: Observable<StudentsRecords[]> = this.store.select(selectAll);
+  dataSource$: Observable<any> = this.store.select(selectAll);
+
   displayColumns: string[] = [
     'name',
     'city',
@@ -31,9 +34,9 @@ export class StudentTableComponent implements OnInit {
     'postalCode',
   ];
 
-  constructor(private store: Store<AppState>) {}
-
-  ngOnInit() {
-    this.dataSource$.subscribe((data) => (this.dataSource = data));
+  constructor(private store: Store<AppState>) {
+    this.store.dispatch(Actions.callStudentsRecordsApi());
   }
+
+  ngOnInit() {}
 }

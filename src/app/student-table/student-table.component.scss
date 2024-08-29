@@ -1,0 +1,32 @@
+/* Custom styles for mat-tab-group */
+mat-tab-group {
+  background-color: #888686; /* Change background color */
+  border: 1px solid #ddd; /* Add a border */
+  border-radius: 8px; /* Round the corners */
+  margin: 16px 0; /* Add some margin */
+}
+
+/* Style the tab headers */
+mat-tab-header {
+  background-color: #e0e0e0; /* Background color for tab headers */
+  border-bottom: 2px solid #ddd; /* Border bottom for tab headers */
+}
+
+/* Style for selected tab label */
+mat-tab-label-active {
+  color: #1976d2 !important; /* Change the text color of the active tab */
+  font-weight: bold; /* Make the active tab label bold */
+}
+
+/* Custom styles for tab labels */
+mat-tab-label {
+  font-size: 16px; /* Font size for tab labels */
+  text-transform: uppercase; /* Transform text to uppercase */
+  padding: 8px 16px; /* Padding for tab labels */
+}
+
+/* Style for tab content */
+mat-tab-body {
+  padding: 16px; /* Padding for tab content */
+  background-color: #ffffff; /* Background color for tab content */
+}

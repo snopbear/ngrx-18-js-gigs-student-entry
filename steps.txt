@@ -6,3 +6,13 @@ ng add @ngrx/store@latest
 
 ng add @ngrx/store-devtools@latest
 
+
+
+
+------------------------------------
+file :proxy.conf.json
+package.json :"    "start": "json-server --watch db.json --routes routes.json & ng serve --proxy-config proxy.conf.json",
+file : routes.json
+
+
+    
